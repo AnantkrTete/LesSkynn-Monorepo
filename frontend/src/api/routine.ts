@@ -1,10 +1,12 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export async function fetchRoutineFromBackend(data: {
   skinType: string;
   concern: string;
   commitment: string;
   preference: string;
 }) {
-  const resp = await fetch("http://localhost:8000/routine", {
+  const resp = await fetch(`${API_BASE_URL}/routine`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -16,4 +18,3 @@ export async function fetchRoutineFromBackend(data: {
 
   return await resp.json();
 }
- 
