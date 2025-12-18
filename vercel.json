@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "backend/index.py": {
+      "runtime": "python3.10"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/index.py"
+    }
+  ]
+}
