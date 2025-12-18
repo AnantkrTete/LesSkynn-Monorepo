@@ -14,10 +14,10 @@ load_dotenv()
 import google.generativeai as genai
 
 # Local imports
-from backend.services.csv_service import match_row
-from backend.services.price_service import fetch_all_prices
-from backend.services.geminiCache_service import make_key, load_cache, save_cache
-from backend.services.mapping import map_skin_type, map_preference
+from services.csv_service import match_row
+from services.price_service import fetch_all_prices
+from services.geminiCache_service import make_key, load_cache, save_cache
+from services.mapping import map_skin_type, map_preference
 
 
 
