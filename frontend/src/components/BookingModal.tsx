@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { InlineWidget } from "react-calendly";
 
 
@@ -8,7 +8,6 @@ interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
   influencerName: string;
-  paymentQr: string;
   calendlyLink: string;
 }
 
@@ -16,19 +15,17 @@ const BookingModal = ({
   isOpen,
   onClose,
   influencerName,
-  paymentQr,
     calendlyLink,
 }: BookingModalProps) => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
 //   const [paymentFile, setPaymentFile] = useState<File | null>(null);
 
-  const [submitted, setSubmitted] = useState(false);
+ 
   const [showCalendly, setShowCalendly] = useState(false);
 
 
 const handleBookingSubmit = () => {
-  setSubmitted(true);
   setShowCalendly(true);
 };
 
