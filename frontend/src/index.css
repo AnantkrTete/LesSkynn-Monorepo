@@ -1,0 +1,48 @@
+
+@import "tailwindcss";
+
+/* Tailwind 4 way: define fonts */
+@theme {
+  --font-garamond: "Garamond", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+   --font-crimson: "Crimson Text", serif;
+}
+
+body {
+  background: #F9F7F2;
+}
+
+@layer base {
+  h1 {
+    @apply font-garamond text-[56px] leading-none;
+  }
+
+  p {
+    @apply font-montserrat font-medium text-[32px] leading-[100%] tracking-normal text-black/50;
+  }
+}
+@keyframes imageLoop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  55% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-image-loop {
+  animation: imageLoop 12s ease-in-out infinite;
+}
