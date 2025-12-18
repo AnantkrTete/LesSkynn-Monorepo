@@ -1,7 +1,7 @@
 import os
 import json
-from typing import Dict, Any, List
-from firebase_client import db
+from typing import Dict, Any, List, Union
+from backend.firebase_client import db
 from firebase_admin import firestore
 from pydantic import BaseModel
 from datetime import datetime
@@ -9,18 +9,18 @@ import uuid
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from dotenv import load_dotenv
 load_dotenv()
 import google.generativeai as genai
 
 # Local imports
-from services.csv_service import match_row
-from services.price_service import fetch_all_prices
+from backend.services.csv_service import match_row
+from backend.services.price_service import fetch_all_prices
+from backend.services.geminiCache_service import make_key, load_cache, save_cache
+from backend.services.mapping import map_skin_type, map_preference
 
 
-from services.geminiCache_service import make_key, load_cache, save_cache
-from services.mapping import map_skin_type, map_preference
+
 
 # -----------------------------
 # ENV + GEMINI CONFIG
@@ -31,7 +31,7 @@ GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
-    raise RuntimeError("GEMINI_API_KEY not found in .env")
+    print("⚠️ GEMINI_API_KEY not set (will fail at runtime if endpoint is hit)")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
@@ -48,6 +48,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+CACHE_DIR = "/tmp/gemini_cache"
+os.makedirs(CACHE_DIR, exist_ok=True)
+
 # -----------------------------
 # MODELS
 # -----------------------------
@@ -55,7 +58,7 @@ class RoutineRequest(BaseModel):
     skinType: str
     concern: str
     commitment: str
-    preference: List[str]
+    preference: Union[List[str],str]
 
 class BookingInitRequest(BaseModel):
     influencer_id: str
@@ -128,19 +131,6 @@ def init_booking(req: BookingInitRequest):
     return {
         "success": True,
         "booking_id": booking_id
-    }
-
-
-    ref = db.collection("bookings").document(booking_id)
-
-    ref.update({
-        "status": "scheduling",
-        "updatedAt": firestore.SERVER_TIMESTAMP,
-    })
-
-    return {
-        "ok": True,
-        "status": "scheduling",
     }
 
 @app.post("/webhooks/calendly")
@@ -350,7 +340,8 @@ def generate_routine(req: RoutineRequest):
     # 4️⃣ GEMINI CACHE KEY
     # -----------------------------------------
     gemini_key = make_key(skin, concern, commitment, preference)
-    gemini_cache_path = f"cache/gemini/{gemini_key}.json"
+    gemini_cache_path = f"{CACHE_DIR}/{gemini_key}.json"
+
 
     # -----------------------------------------
     # 5️⃣ LOAD CACHE
