@@ -1,3 +1,5 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export async function initBookingFromBackend(data: {
   influencer_id: string;
   influencer_name: string;
@@ -6,7 +8,7 @@ export async function initBookingFromBackend(data: {
   payment_screenshot_url: string;
   quiz_response_id: string;
 }) {
-  const resp = await fetch("http://localhost:8000/booking/init", {
+  const resp = await fetch(`${API_BASE_URL}/booking/init`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
