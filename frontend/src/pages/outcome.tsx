@@ -70,7 +70,7 @@ const OutcomePage = () => {
   const [isCategoryMode, setIsCategoryMode] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 const [categoryData, setCategoryData] = useState<CategoriesItem[]>([]);
-const [activeProductIndex, setActiveProductIndex] = useState<number | null>(null);
+
 
 
   // Mobile Specific State
