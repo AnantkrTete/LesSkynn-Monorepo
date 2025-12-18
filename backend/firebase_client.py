@@ -1,18 +1,15 @@
-import os
-import json
-import firebase_admin
-from firebase_admin import credentials, firestore
+import os, json
+from firebase_admin import credentials, firestore, initialize_app
 
-if not firebase_admin._apps:
-    firebase_creds = os.getenv("FIREBASE_SERVICE_ACCOUNT")
+firebase_creds = os.getenv("FIREBASE_CREDENTIALS")
+if not firebase_creds:
+    raise RuntimeError("FIREBASE_CREDENTIALS not set")
 
-    if not firebase_creds:
-        raise RuntimeError("FIREBASE_SERVICE_ACCOUNT env var not set")
+creds = json.loads(firebase_creds)
 
-    # IMPORTANT: handle escaped newlines
-    firebase_creds = firebase_creds.replace("\\n", "\n")
+# THIS LINE IS REQUIRED
+creds["private_key"] = creds["private_key"].replace("\\n", "\n")
 
-    cred = credentials.Certificate(json.loads(firebase_creds))
-    firebase_admin.initialize_app(cred)
-
+cred = credentials.Certificate(creds)
+initialize_app(cred)
 db = firestore.client()
