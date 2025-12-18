@@ -3,13 +3,13 @@ import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# Prevent re-initialization in serverless
 if not firebase_admin._apps:
-    service_account_info = json.loads(
-        os.environ.get("FIREBASE_SERVICE_ACCOUNT")
-    )
+    firebase_creds = os.getenv("FIREBASE_SERVICE_ACCOUNT")
 
-    cred = credentials.Certificate(service_account_info)
+    if not firebase_creds:
+        raise RuntimeError("FIREBASE_SERVICE_ACCOUNT env var not set")
+
+    cred = credentials.Certificate(json.loads(firebase_creds))
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
