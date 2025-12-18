@@ -107,7 +107,6 @@ const InfluencerCard = ({
         onClose={() => setOpen(false)}
         influencerName={name}
         calendlyLink={calendlyLink}
-        paymentQr="/qr.png"
       />
     </>
   );
