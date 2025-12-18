@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict, Any, List, Union
-from backend.firebase_client import db
+from firebase_client import db
 from firebase_admin import firestore
 from pydantic import BaseModel
 from datetime import datetime
