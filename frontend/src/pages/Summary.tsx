@@ -98,7 +98,7 @@ const Summary = () => {
       />
     );
   }
-console.log("API BASE URL:", import.meta.env.VITE_API_BASE_URL);
+
 
   // 5) MAIN SUMMARY UI
   return (
