@@ -4,6 +4,9 @@ import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import AnimatedLoadingScreen from "../components/AnimatedLoadingScreen.tsx";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 const Summary = () => {
   const navigate = useNavigate();
 
@@ -58,7 +61,7 @@ const Summary = () => {
     setShowAnimation(true);
 
     try {
-      const res = await fetch("http://localhost:8000/routine", {
+      const res = await fetch(`${API_BASE_URL}/routine`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
