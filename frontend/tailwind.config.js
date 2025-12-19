@@ -31,8 +31,9 @@ module.exports = {
         pill: "50px",
       },
       fontFamily: {
-        garamond: ["Garamond", "serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        montserrat: "var(--font-montserrat)",
+        garamond: "var(--font-garamond)",
+        crimson: "var(--font-crimson)",
       },
     },
   },

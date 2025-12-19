@@ -3,9 +3,9 @@
 
 /* Tailwind 4 way: define fonts */
 @theme {
-  --font-garamond: "Garamond", serif;
   --font-montserrat: "Montserrat", sans-serif;
-   --font-crimson: "Crimson Text", serif;
+  --font-garamond: "Garamond", serif;
+  --font-crimson: "Crimson Text", serif;
 }
 
 body {
