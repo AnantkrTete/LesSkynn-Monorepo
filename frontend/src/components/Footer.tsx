@@ -33,10 +33,11 @@ const Footer = ({ variant = "default" }: FooterProps) => {
         </div>
       )}
 
-      {/* ⭐ FOOTER CONTENT */}
+      {/* ⭐ FOOTER CONTENT PC*/}
       <footer
         className={`
           relative z-10
+          hidden md:block
           ${isLanding ? "bg-black" : "bg-[#2C2C2C]"}
           text-white
           px-6
@@ -154,6 +155,105 @@ const Footer = ({ variant = "default" }: FooterProps) => {
 
         </div>
       </footer>
+                   
+      {/* ⭐ FOOTER CONTENT MOBILE */}
+<footer
+  className={`
+    md:hidden
+    bg-black
+    text-white
+    px-6
+    py-16
+  `}
+>
+  <div className="flex flex-col items-center text-center gap-10 max-w-sm mx-auto">
+
+    {/* BRAND */}
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex items-center gap-5">
+        <img src={logo} alt="LesSkyn" className="h-14 w-10" />
+        <h3 className="font-garamond mt-[10px] text-[32px] font-medium">
+          LesSkyn
+        </h3>
+      </div>
+
+      <p className="text-[14px] text-white/50 w-[80%] leading-relaxed max-w-xs">
+        AI-powered skincare assistant creating clarity in skincare chaos for Indian consumers.
+      </p>
+    </div>
+
+    {/* SOCIALS */}
+    <div className="flex items-center mt-[-16px] gap-6">
+      <Instagram className="h-5 w-5" />
+      <Twitter className="h-5 w-5 " />
+      <Facebook className="h-5 w-5" />
+    </div>
+
+      <div className="grid grid-cols-2 gap-x-10 gap-y-8 w-full mt-[20px] item-center ml-[60px] max-w-[320px] mx-auto">
+        
+            {/* QUICK LINKS */}
+            <div className="flex flex-col gap-4 w-full max-w-[160px] mx-auto text-left">
+            <h4 className="font-garamond text-xl text-white">
+              Quick Links
+            </h4>
+
+            <ul className="p-0 m-0 list-none space-y-2 text-[14px] text-white/50">
+              <li>Home</li>
+              <li>About Us</li>
+              <li>Features</li>
+              <li>Community</li>
+            </ul>
+          </div>
+
+
+
+            {/* RESOURCES */}
+            <div className="flex flex-col gap-4 w-full max-w-[160px] text-left">
+              <h4 className="font-garamond text-[20px]">Resources</h4>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li>Take the quiz</li>
+                <li>Blog</li>
+                <li>Sign-up</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+
+        </div>
+
+
+    {/* NEWSLETTER */}
+    <div className="flex flex-col items-center mt-[40px] gap-4 w-full">
+      <h4 className="font-garamond text-[20px]">Stay Updated</h4>
+
+      <p className="text-[14px] font-montserrat text-white/50 max-w-[60%] mb-[10px]">
+        Get skincare tips and updates delivered to your inbox.
+      </p>
+
+      <Input
+        type="email"
+        placeholder="Enter your email address"
+        className="h-[37px] px-6 rounded-lg bg-white text-black/70 w-[241px]"
+      />
+
+      <Button
+        className="
+          h-[37px]
+          rounded-lg
+          bg-[#FFAD71]
+          hover:bg-[#ff9a4d]
+          text-black
+          font-semibold
+          text-[11px]
+          w-[241px]
+        "
+      >
+        Get Early Access
+      </Button>
+    </div>
+
+  </div>
+</footer>
+
     </section>
   );
 };

@@ -3,86 +3,65 @@ import { useNavigate } from "react-router-dom";
 const Bookinf = () => {
   const navigate = useNavigate();
   return (
-    <section className="relative w-full bg-white py-[120px]">
-      <div className="mx-auto max-w-[1526px] ">
-        <div className="grid grid-cols-2 items-center gap-[50px]">
-          
-          
+    <section className="relative w-full bg-white py-[40px] md:py-[120px]">
+  <div className="mx-auto max-w-[1526px] px-6 md:px-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-[40px] justify-items-center md:justify-items-start">
 
-          {/* Left IMAGE PLACEHOLDER */}
-          <div
-            className="
-              relative
-              h-[515px]
-              w-[550px]
-              rounded-3xl
-              bg-[#F7F7F7]
-              flex items-center justify-center
-              bg-white
-            "
-          >
-            
-            <span className="text-black/40 font-montserrat">
-              <img src={pic} alt="" />
-            </span>
-          </div>
-    
-          <div className="max-w-[520px] text-right">
-            {/* CTA Button */}
-           
-            <button
-             onClick={()=>navigate("/booking")}
-              className="
-                mb-8
-                rounded-full
-                bg-[#FCFCA2]
-                w-[364px]
-                h-[93px]
-                px-10 py-4
-                font-montserrat
-                text-[24px] font-semibold
-                text-black
-                border cursor-pointer
-              "
-            >
-              Book a Call
-            </button>
+        <div className="hidden md:flex relative h-[515px] w-[550px] rounded-3xl bg-white items-center justify-center">
+        <img src={pic} alt="" />
+      </div>
 
-            {/* Heading */}
-            <h2
-             className="
-                font-montserrat
-                font-semibold
-                text-[40px]
-                leading-[1]
-                tracking-normal
-                text-black
-                "
+      {/* TEXT CONTENT */}
+      <div className="max-w-[520px] w-full flex flex-col items-center md:items-end text-center md:text-right">
 
-            >
-             Real skin advice, from people who get it.
-            </h2>
-
-            {/* Description */}
-            <p
-            className="
+        {/* CTA */}
+        <button
+          onClick={() => navigate("/booking")}
+          className="
+            mb-6
+            rounded-full
+            bg-[#FCFCA2]
+            w-[93px] md:w-[364px]
+            h-[34px] md:h-[93px]
             font-montserrat
-            font-medium
-            text-[28px]
-            leading-[32px]
-            tracking-normal
+            text-[8px] md:text-[24px]
+            font-semibold
             text-black
-            mt-[20px]
-            "
+            border
+            border-black/50
+            md:border-black/100
+          "
+        >
+          Book a Call
+        </button>
 
-            >
-              Chat 1:1 with trusted skincare creators who’ve dealt with real skin issues and share what actually works for Indian skin
-            </p>
-          </div>
+        {/* Heading */}
+        <h2 className="font-montserrat font-semibold w-[60%] md:w-full text-[14px] md:text-[40px] leading-[1] text-black">
+          Real skin advice, from people who get it.
+        </h2>
 
+        {/* Description */}
+        <p className="hidden md:block font-montserrat font-medium text-[8px] md:text-[28px] leading-[12px] md:leading-[32px] text-black mt-[12px] md:mt-[20px]">
+          Chat 1:1 with trusted skincare creators who’ve dealt with real skin issues and share what actually works for Indian skin
+        </p>
+
+        <p className="block md:hidden font-montserrat font-medium text-[8px] w-[80%] md:text-[28px] leading-[12px] md:leading-[32px] text-black mt-[12px] md:mt-[20px]">
+          Connect with trusted skincare creators who’ve dealt with real skin concerns and know what actually works—no filters, no fluff.
+        </p>
+
+        {/* MOBILE IMAGE CARD */}
+        <div className="md:hidden relative h-[180px] w-[217px] rounded-3xl bg-white flex items-center justify-center mt-[60px] md:mt-[20px]">
+          <img src={pic} alt="" />
         </div>
       </div>
-    </section>
+
+      {/* DESKTOP IMAGE */}
+    
+
+    </div>
+  </div>
+</section>
+
   );
 };
 

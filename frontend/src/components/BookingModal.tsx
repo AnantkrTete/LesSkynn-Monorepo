@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import {  useState } from "react";
+import {  useState,useEffect } from "react";
 import { InlineWidget } from "react-calendly";
 
 
@@ -24,6 +24,27 @@ const BookingModal = ({
  
   const [showCalendly, setShowCalendly] = useState(false);
 
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+  } else {
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
+    setShowCalendly(false);
+    setName("");
+    setLocation("");
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
+  };
+}, [isOpen]);
+
+
+
+
 
 const handleBookingSubmit = () => {
   setShowCalendly(true);
@@ -33,8 +54,21 @@ const handleBookingSubmit = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="relative w-full max-w-xl rounded-2xl bg-white p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 overscroll-contain">
+      <div
+  className="
+    relative
+    w-full
+    max-w-xl
+    rounded-2xl
+    bg-white
+    p-4 md:p-8
+    shadow-2xl
+
+    scale-[0.92] md:scale-100
+    origin-center
+  "
+>
         <button onClick={onClose} className="absolute right-4 top-4">
           <X size={22} />
         </button>
@@ -43,7 +77,19 @@ const handleBookingSubmit = () => {
           Book a Call with {influencerName}
         </h2>
                     {showCalendly  && (
-            <div className="mt-8 h-[650px] rounded-xl overflow-hidden border">
+            <div
+  className="
+    mt-6
+    h-[520px] md:h-[650px]
+    rounded-xl
+    overflow-hidden
+    border
+
+    scale-[0.9] md:scale-100
+    origin-top
+  "
+>
+
                 <InlineWidget
                 url={calendlyLink}
                 styles={{ height: "100%", width: "100%" }}

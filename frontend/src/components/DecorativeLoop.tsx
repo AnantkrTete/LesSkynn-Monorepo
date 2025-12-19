@@ -11,9 +11,9 @@ const DecorativeLoop = () => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const showTime = 2200;  // visible
-    const fadeTime = 700;   // fade out
-    const gapTime = 400;    // EMPTY gap (critical)
+    const showTime = 2000;  // visible
+    const fadeTime = 500;   // fade out
+    const gapTime = 200;    // EMPTY gap (critical)
 
     const hide = setTimeout(() => setVisible(false), showTime);
 
@@ -34,8 +34,9 @@ const DecorativeLoop = () => {
         src={images[index]}
         className={`
           absolute
-           left-[25%]
-          w-[650px] h-[500px]
+          md:left-[25%]
+          w-[168px]
+           md:w-[650px] h-[130px] md:h-[500px]
           transition-opacity duration-[700ms] ease-in-out
           ${visible ? "opacity-100" : "opacity-0"}
         `}

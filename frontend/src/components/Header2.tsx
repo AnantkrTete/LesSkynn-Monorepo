@@ -114,8 +114,8 @@ const isBookingPage = location.pathname === "/booking";
           <div className="absolute top-full right-4 mt-2 z-50">
             <div className="w-52 rounded-xl shadow-lg p-4 bg-white text-black">
               <nav className="flex flex-col gap-4 text-base">
-                <NavLink to="/home" onClick={() => setOpen(false)}>Home</NavLink>
-                <NavLink to="/quiz" onClick={() => setOpen(false)}>Quiz</NavLink>
+                <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
+                <NavLink to="/q1" onClick={() => setOpen(false)}>Quiz</NavLink>
                 <NavLink to="/booking" onClick={() => setOpen(false)}>Your Booking</NavLink>
                 {isBookingPage && (
                 <button

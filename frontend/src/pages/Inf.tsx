@@ -12,7 +12,8 @@ import blueB from "../assets/bluebpot.svg";
 import Infhead from "../assets/Talk to your favorite Skincare Influencer.svg";
 import InfluencerCard from "@/components/InfluencerCard.tsx";
 import { useState,useEffect } from "react";
-
+import Infheadmobile from "../assets/Talk to your favorite Skincare Influencer mobile.svg"
+import girlleft from "../assets/InfG.png"
 type Influencer = {
   id: number;
   name: string;
@@ -154,7 +155,7 @@ useEffect(() => {
         <div className="flex justify-center mt-25">
              
         {/* PURPLE BG CONTAINER */}
-        <div className="relative w-[1665px] max-w-full">
+        <div className="relative hidden md:block w-[1665px] max-w-full">
             <div className="absolute z-30 inset-0 hidden md:block pointer-events-none">
                 <img src={pinkBottle} className="w-15 absolute top-[10px] left-12" />
                 <img src={yello} className="w-20 absolute top-[-20px] right-124" />
@@ -241,13 +242,65 @@ useEffect(() => {
         </div>
         </div>
 
-        <section className="w-full bg-white py-24">
-        <div className="max-w-[1246px] mx-auto px-">
+         <div className="block md:hidden flex justify-center mt-[-10px]">
+  <div className="relative w-[355px]">
+    
+    {/* Purple background */}
+    <img
+      src={hero}
+      alt="purple-bg"
+      className="w-full h-[301px] object-cover rounded-3xl"
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 flex flex-col items-center px-4 pt-6 text-center">
+
+      {/* Heading */}
+      <img
+        src={Infheadmobile}
+        alt="heading"
+        className="h-[49px] mb-5"
+      />
+
+      {/* Description */}
+      <p className="text-[8px] font-montserrat text-black leading-tight max-w-[285px]">
+        Get personalized skincare advice from trusted influencers. Ask questions, build your routine, and achieve the skin of your dreams.
+      </p>
+
+      {/* Trust badge */}
+      <div className="flex items-center gap-2 mt-3">
+        <img
+          src={smallpf}
+          alt="users"
+          className="w-[28px] h-auto rounded-full"
+        />
+        <p className="font-montserrat font-medium text-[9px] text-black">
+          50+ Influencers
+        </p>
+      </div>
+
+      {/* Spacer */}
+      <div className="flex-grow" />
+
+      {/* Girls image */}
+      <img
+        src={girlleft}
+        alt="models"
+        className=" object-contain mt-2 py-4"
+      />
+    </div>
+  </div>
+    </div>
+
+
+        <section className="w-full bg-white mb-[-90px] md:mb-[0px] md:py-24">
+        <div className="max-w-[1246px] mx-auto ">
             {/* SECTION TITLE (optional, can add later) */}
             {/* <h2 className="text-center mb-16">Meet Our Influencers</h2> */}
 
             {/* GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-30 gap-y-34 py-[80px] mb-[160px]">
+            <div className="flex flex-cols justify-center">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-[30px] md:gap-x-30  gap-y-8 md:gap-y-34 py-[80px] mb-[160px]">
             {influencers.map((inf) => (
                 <InfluencerCard
                 key={inf.id}
@@ -259,14 +312,15 @@ useEffect(() => {
                 />
             ))}
             </div>
+            </div>
         </div>
         </section>
 
 
                 {showRegisterModal && (
   <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
-    <div className="bg-white rounded-2xl p-6 w-full max-w-md">
-      <h2 className="text-xl font-semibold mb-4">
+    <div className="bg-white rounded-2xl p-6 w-[80%] md:w-full max-w-md">
+      <h2 className="text-lg md:text-xl font-semibold mb-4">
         Register Influencer
       </h2>
 
