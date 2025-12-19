@@ -15,7 +15,7 @@ import DiscoverSection from "@/components/Discover";
 import QuizIntroSection from "@/components/QuizIntroSection"
 import Bookinf from "@/components/Bookinf";
 import Infheadmobile from "../assets/Infhead_mobile.svg";
-import girlleft from "../assets/girlleft.png";
+import girlleft from "../assets/GirlsMobile.svg";
 
 const Index = () => {
   

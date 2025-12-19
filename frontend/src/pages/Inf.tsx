@@ -13,7 +13,8 @@ import Infhead from "../assets/Talk to your favorite Skincare Influencer.svg";
 import InfluencerCard from "@/components/InfluencerCard.tsx";
 import { useState,useEffect } from "react";
 import Infheadmobile from "../assets/Talk to your favorite Skincare Influencer mobile.svg"
-import girlleft from "../assets/InfG.png"
+
+import girlleft from "../assets/couple.svg"
 type Influencer = {
   id: number;
   name: string;
@@ -288,6 +289,7 @@ useEffect(() => {
         alt="models"
         className=" object-contain mt-2 py-4"
       />
+      
     </div>
   </div>
     </div>
