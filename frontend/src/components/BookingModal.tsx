@@ -73,22 +73,22 @@ const handleBookingSubmit = () => {
           <X size={22} />
         </button>
 
-        <h2 className="text-[28px] font-semibold">
+        <h2 className={`font-semibold ${showCalendly ? "text-[22px]" : "text-[28px]"}`}>
           Book a Call with {influencerName}
         </h2>
                     {showCalendly  && (
-            <div
-  className="
-    mt-6
-    h-[520px] md:h-[650px]
-    rounded-xl
-    overflow-hidden
-    border
+                                <div
+                      className="
+                        mt-6
+                        h-[520px] md:h-[650px]
+                        rounded-xl
+                        overflow-hidden
+                        border
 
-    scale-[0.9] md:scale-100
-    origin-top
-  "
->
+                        scale-[0.9] md:scale-100
+                        origin-top
+                      "
+                    >
 
                 <InlineWidget
                 url={calendlyLink}
@@ -106,36 +106,34 @@ const handleBookingSubmit = () => {
             </div>
             )}
 
-    
-          <div className="mt-6 space-y-5">
-            <input
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-xl border px-4 py-3"
-            />
+                {!showCalendly && (
+      <div className="mt-6 space-y-5">
+        <input
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full rounded-xl border px-4 py-3"
+        />
 
-            <input
-              placeholder="Your Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="w-full rounded-xl border px-4 py-3"
-            />
+        <input
+          placeholder="Your Location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="w-full rounded-xl border px-4 py-3"
+        />
 
-            {/* <img src={paymentQr} className="h-24 mx-auto" 
-            /> */}
-{/* 
-            <input type="file" onChange={(e) => setPaymentFile(e.target.files?.[0] || null)} /> */}
+        <button
+          onClick={handleBookingSubmit}
+          disabled={!name || !location}
+          className="w-full rounded-xl bg-[#FCFCA2] py-3 font-semibold cursor-pointer"
+        >
+          Proceed to Schedule
+        </button>
+      </div>
+    )}
 
-            <button
-            onClick={handleBookingSubmit}
-            disabled={!name || !location}
-            className="w-full rounded-xl bg-[#FCFCA2] py-3 font-semibold cursor-pointer"
-            >
-            Proceed to Schedule
-            </button>
 
-          </div>
+
         
       </div>
     </div>

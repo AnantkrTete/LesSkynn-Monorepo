@@ -188,37 +188,35 @@ const Footer = ({ variant = "default" }: FooterProps) => {
       <Twitter className="h-5 w-5 " />
       <Facebook className="h-5 w-5" />
     </div>
+<div className="grid grid-cols-2 gap-x-8 gap-y-8 w-full max-w-[320px] mx-auto mt-6">
+  
+  {/* QUICK LINKS */}
+  <div className="flex flex-col gap-4 items-start">
+    <h4 className="font-garamond text-xl text-white">
+      Quick Links
+    </h4>
+    <ul className="list-none space-y-2 text-[14px] text-white/50">
+      <li>Home</li>
+      <li>About Us</li>
+      <li>Features</li>
+      <li>Community</li>
+    </ul>
+  </div>
 
-      <div className="grid grid-cols-2 gap-x-10 gap-y-8 w-full mt-[20px] item-center ml-[60px] max-w-[320px] mx-auto">
-        
-            {/* QUICK LINKS */}
-            <div className="flex flex-col gap-4 w-full max-w-[160px] mx-auto text-left">
-            <h4 className="font-garamond text-xl text-white">
-              Quick Links
-            </h4>
+  {/* RESOURCES */}
+  <div className="flex flex-col gap-4 items-start">
+    <h4 className="font-garamond text-xl text-white">
+      Resources
+    </h4>
+    <ul className="list-none space-y-2 text-[14px] text-white/50">
+      <li>Take the quiz</li>
+      <li>Blog</li>
+      <li>Sign-up</li>
+      <li>Contact Us</li>
+    </ul>
+  </div>
 
-            <ul className="p-0 m-0 list-none space-y-2 text-[14px] text-white/50">
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Features</li>
-              <li>Community</li>
-            </ul>
-          </div>
-
-
-
-            {/* RESOURCES */}
-            <div className="flex flex-col gap-4 w-full max-w-[160px] text-left">
-              <h4 className="font-garamond text-[20px]">Resources</h4>
-              <ul className="space-y-2 text-sm text-white/60">
-                <li>Take the quiz</li>
-                <li>Blog</li>
-                <li>Sign-up</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
-
-        </div>
+</div>
 
 
     {/* NEWSLETTER */}
