@@ -57,10 +57,10 @@ const InfluencerCard = ({
         {/* Content */}
         <div className="w-[98px] md:w-[312px] flex flex-col mt-[-15px] md:mt-[0px] items-center gap-[4px] md:gap-[32px]">
           <div className="flex flex-col items-center md:gap-[8px]">
-            <h3 className="font-montserrat font-semibold text-[7px] md:text-[20px] text-black text-center">
+            <h3 className="font-montserrat font-semibold text-[8px] md:text-[20px] text-black text-center">
               {name}
             </h3>
-            <p className="font-montserrat font-medium text-[5px] md:text-[16px] text-black/30 text-center">
+            <p className="font-montserrat font-medium text-[6px] md:text-[16px] text-black/30 text-center">
               {subtitle}
             </p>
           </div>
@@ -103,7 +103,7 @@ const InfluencerCard = ({
           md:border md:border-black
 
           font-montserrat font-semibold
-          text-[5px] md:text-[16px]
+          text-[6px] md:text-[16px]
         "
       >
         Book Now
