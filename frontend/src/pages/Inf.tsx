@@ -14,7 +14,8 @@ import InfluencerCard from "@/components/InfluencerCard.tsx";
 import { useState,useEffect } from "react";
 import Infheadmobile from "../assets/Talk to your favorite Skincare Influencer mobile.svg"
 
-import girlleft from "../assets/couple.svg"
+import girlleft from "../assets/women.svg"
+import girlright from "../assets/man.svg"
 type Influencer = {
   id: number;
   name: string;
@@ -281,15 +282,43 @@ useEffect(() => {
       </div>
 
       {/* Spacer */}
-      <div className="flex-grow" />
+     <div
+                  className="
+                    relative
+                    w-full
+                    h-[115px] 
+                    overflow-hidden
+                    [mask-image:linear-gradient(to_top,transparent_0%,black_35%,black_100%)]
+                    [-webkit-mask-image:linear-gradient(to_top,transparent_0%,black_35%,black_100%)]
+                  "
+                >
+                  {/* Left */}
+                  <img
+                    src={girlleft}
+                    alt="left model"
+                    className="
+                      absolute
+                      bottom-0
+                      z-10
+                      left-[70px]
+                      w-[112px]
+                      z-10
+                    "
+                  />                
 
-      {/* Girls image */}
-      <img
-        src={girlleft}
-        alt="models"
-        className=" object-contain mt-2 py-4"
-      />
-      
+                  {/* Right */}
+                  <img
+                    src={girlright}
+                    alt="right model"
+                    className="
+                      absolute
+                      bottom-0
+                      right-[72px]
+                      w-[100px]
+                      z-10
+                    "
+                  />
+                </div>      
     </div>
   </div>
     </div>

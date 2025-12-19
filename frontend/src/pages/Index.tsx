@@ -15,7 +15,9 @@ import DiscoverSection from "@/components/Discover";
 import QuizIntroSection from "@/components/QuizIntroSection"
 import Bookinf from "@/components/Bookinf";
 import Infheadmobile from "../assets/Infhead_mobile.svg";
-import girlleft from "../assets/GirlsMobile.svg";
+import girlleft from "../assets/leftkudi.svg";
+import girlmid from "../assets/midkudi.svg";
+import girlright from "../assets/rightkudi.svg";
 
 const Index = () => {
   
@@ -124,55 +126,105 @@ const Index = () => {
         </div>    
     </div>
 
-    <div className="block md:hidden flex justify-center mt-[-10px]">
-  <div className="relative w-[355px]">
-    
-    {/* Purple background */}
-    <img
-      src={hero}
-      alt="purple-bg"
-      className="w-full h-[301px] object-cover rounded-3xl"
-    />
+<div className="block md:hidden flex justify-center mt-[-10px]">
+        <div className="relative w-[355px]">
+          
+          {/* Purple background */}
+          <img
+            src={hero}
+            alt="purple-bg"
+            className="w-full h-[301px] object-cover rounded-3xl"
+          />
 
-    {/* Overlay */}
-    <div className="absolute inset-0 flex flex-col items-center px-4 pt-6 text-center">
+          {/* Overlay */}
+          <div className="absolute inset-0 flex flex-col items-center px-4 pt-6 text-center">
 
-      {/* Heading */}
-      <img
-        src={Infheadmobile}
-        alt="heading"
-        className="h-[49px] mb-5"
-      />
+            {/* Heading */}
+            <img
+              src={Infheadmobile}
+              alt="heading"
+              className="h-[49px] mb-5"
+            />
 
-      {/* Description */}
-      <p className="text-[8px] font-montserrat text-black leading-tight max-w-[285px]">
-        Answer a few smart questions and get a personalized skincare routine
-        and product picks tailored to your skin, lifestyle, and goals.
-      </p>
+            {/* Description */}
+            <p className="text-[8px] font-montserrat text-black leading-tight max-w-[285px]">
+              Answer a few smart questions and get a personalized skincare routine
+              and product picks tailored to your skin, lifestyle, and goals.
+            </p>
 
-      {/* Trust badge */}
-      <div className="flex items-center gap-2 mt-3">
-        <img
-          src={smallpf}
-          alt="users"
-          className="w-[28px] h-auto rounded-full"
-        />
-        <p className="font-montserrat font-medium text-[9px] text-black">
-          100+ users trust LesSkyn
-        </p>
-      </div>
+            {/* Trust badge */}
+            <div className="flex items-center gap-2 mt-3">
+              <img
+                src={smallpf}
+                alt="users"
+                className="w-[28px] h-auto rounded-full"
+              />
+              <p className="font-montserrat font-medium text-[9px] text-black">
+                100+ users trust LesSkyn
+              </p>
+            </div>
 
-      {/* Spacer */}
-      <div className="flex-grow" />
+            {/* Spacer */}
+             {/* Girls container */}
+                    
+              {/* Girls container */}
+                <div
+                  className="
+                    relative
+                    w-full
+                    h-[115px] 
+                    overflow-hidden
+                    [mask-image:linear-gradient(to_top,transparent_0%,black_35%,black_100%)]
+                    [-webkit-mask-image:linear-gradient(to_top,transparent_0%,black_35%,black_100%)]
+                  "
+                >
+                  {/* Left */}
+                  <img
+                    src={girlleft}
+                    alt="left model"
+                    className="
+                      absolute
+                      bottom-0
+                      z-10
+                      left-[50px]
+                      w-[111px]
+                      z-10
+                    "
+                  />
 
-      {/* Girls image */}
-      <img
-        src={girlleft}
-        alt="models"
-        className=" object-contain mt-2 py-4"
-      />
-    </div>
-  </div>
+                  {/* Middle (dominant) */}
+                  <img
+                    src={girlmid}
+                    alt="middle model"
+                    className="
+                      absolute
+                      bottom-0
+                      z-0
+                      left-1/2
+                      ml-2
+                      -translate-x-1/2
+                      w-[118px]
+                      z-20
+                    "
+                  />
+
+                  {/* Right */}
+                  <img
+                    src={girlright}
+                    alt="right model"
+                    className="
+                      absolute
+                      bottom-0
+                      right-[20px]
+                      w-[118px]
+                      z-10
+                    "
+                  />
+                </div>
+
+
+            </div>
+        </div>
     </div>
 
        
