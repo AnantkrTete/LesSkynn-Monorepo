@@ -9,7 +9,7 @@ const DiscoverSection = () => {
 
 
       {/* CENTERED COLUMN */}
-      <div className="relative max-w-[1200px] mx-auto text-center">
+      <div className="relative w-[80%] md:max-w-[1200px] mx-auto text-center">
 
         {/* TOP TEXT */}
         <h1
